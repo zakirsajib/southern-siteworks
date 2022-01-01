@@ -1,0 +1,17 @@
+.loader {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1200;
+    background: #fff;
+    overflow: hidden;
+}
+.preloader-video {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}

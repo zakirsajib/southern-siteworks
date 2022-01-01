@@ -1,0 +1,105 @@
+// Contact Us Button
+
+.cta-button {
+    max-width: 333px;
+    width: 100%;
+    position: relative;
+    .ss-button {
+        border-top-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        width: 273px;
+        height: 63px;
+        background-color: var(--ss-denim);
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+        text-decoration: none;
+        color: var(--ss-white);
+        font-weight: 700;
+        font-size: 1.25rem;
+        line-height: 1.938rem;
+        position: relative;
+        transition: width 0.5s ease;
+        &:hover {
+            color: var(--ss-white);;
+            width: 333px;
+        }
+        @media (max-width: 1199px) {
+            width: 245px;
+        }
+        @media (max-width: 767px) {
+            width: 273px;
+        }
+        @media (max-width: 375px) {
+            width: 300px;
+        }
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        border-bottom-right-radius: 30px;
+        background-color: var(--ss-white);;
+        width: 85px;
+        height: 63px;
+        right: 0;
+        top: 0;
+        z-index: -1;
+        border: 3px solid var(--ss-denim);
+        @media (max-width: 375px) {
+            display: none;
+        }
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        right: 15px;
+        clip-path: polygon(70% 0, 100% 50%, 70% 100%, 0% 100%, 30% 50%, 0% 0%);
+        width: 31px;
+        height: 27px;
+        top: 17.5px;
+        background-color: var(--ss-denim);
+        @media (max-width: 375px) {
+            display: none;
+        }
+    }
+}
+
+// View Button
+.ss-view-button {
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 12px 24px;
+    background: var(--ss-white);
+    color: var(--ss-denim);
+    font-size: 1.25rem;;
+    line-height: 1.938rem;
+    letter-spacing: 0.04em;
+    text-align: center;
+    text-decoration: none;
+    width: 306px;
+    max-width: 100%;
+    transition: background-color 0.5s ease-out;
+    @media (max-width: 1450px) {
+        width: 80%;
+    }
+    @media (max-width: 1024px) {
+        height: 36px;
+        font-size: 0.938rem;
+        line-height: 1.438rem;
+        padding: 6px 20px;
+    }
+    @media (max-width: 699px) {
+        font-size: 1rem;
+        line-height: 1.563rem;
+        padding: 10px;
+        width: 288px;
+        height: 45px;
+        border-top-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+    &:hover {
+        background: var(--ss-russian-blue);
+        box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.24);
+        color: var(--ss-white);
+    }
+}
