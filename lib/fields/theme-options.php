@@ -19,27 +19,27 @@ Container::make( 'theme_options', __('Theme Options', THEME_TEXTDOMAIN) )
         )
 	)
 
-	->add_tab(
-        __('Instagram', THEME_TEXTDOMAIN),
-        array(
-			Field::make( 'text', 'instagram_app_id', __('Instagram App ID', THEME_TEXTDOMAIN) )
-				->set_width(33),
-			Field::make( 'text', 'instagram_app_secret', __('Instagram App Secret', THEME_TEXTDOMAIN) )
-				->set_width(33),
-			Field::make( 'text', 'instagram_access_token', __('Instagram Access Token', THEME_TEXTDOMAIN) )
-				->set_width(33)
-        )
-	)
-
-	->add_tab(
-        __('BirdEye', THEME_TEXTDOMAIN),
-        array(
-			Field::make( 'text', 'birdeye_business_id', __('BirdEye Business ID', THEME_TEXTDOMAIN) )
-				->set_width(50),
-			Field::make( 'text', 'birdeye_api_key', __('BirdEye API Key', THEME_TEXTDOMAIN) )
-				->set_width(50)
-        )
-	)
+	// ->add_tab(
+    //     __('Instagram', THEME_TEXTDOMAIN),
+    //     array(
+	// 		Field::make( 'text', 'instagram_app_id', __('Instagram App ID', THEME_TEXTDOMAIN) )
+	// 			->set_width(33),
+	// 		Field::make( 'text', 'instagram_app_secret', __('Instagram App Secret', THEME_TEXTDOMAIN) )
+	// 			->set_width(33),
+	// 		Field::make( 'text', 'instagram_access_token', __('Instagram Access Token', THEME_TEXTDOMAIN) )
+	// 			->set_width(33)
+    //     )
+	// )
+	//
+	// ->add_tab(
+    //     __('BirdEye', THEME_TEXTDOMAIN),
+    //     array(
+	// 		Field::make( 'text', 'birdeye_business_id', __('BirdEye Business ID', THEME_TEXTDOMAIN) )
+	// 			->set_width(50),
+	// 		Field::make( 'text', 'birdeye_api_key', __('BirdEye API Key', THEME_TEXTDOMAIN) )
+	// 			->set_width(50)
+    //     )
+	// )
 
 	// Adding Preloader Option
 	->add_tab(
@@ -73,6 +73,15 @@ Container::make( 'theme_options', __('Theme Options', THEME_TEXTDOMAIN) )
 			Field::make( 'text', 'southern_social_url', __('Social Media URL', THEME_TEXTDOMAIN) )
 				->set_width(25)
         )
+	)
+
+	// Google Map Options
+	->add_tab(
+        __('Google Map', THEME_TEXTDOMAIN),
+        array(
+			Field::make( 'text', 'southern_google_map_api_key', __('Google Map API Key', THEME_TEXTDOMAIN) )
+				->set_width(100),
+		)
 	)
 
 

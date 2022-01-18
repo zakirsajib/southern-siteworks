@@ -92,8 +92,12 @@ function enqueue_scripts() {
 
 	wp_enqueue_script( THEME_TEXTDOMAIN . '-googlemappolyfill', 'https://polyfill.io/v3/polyfill.min.js?features=default', null, false, true );
 	wp_enqueue_script( THEME_TEXTDOMAIN . '-googlemap', get_stylesheet_directory_uri() . '/assets/theme/js/googlemap.js', null, false, true );
-	wp_enqueue_script( THEME_TEXTDOMAIN . '-googlemapapi', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyD8q_6THmnOuai4cjshZ_VMl0pOI0E2x5I&callback=initMap', null, false, true );
 
+	if ( !empty( carbon_get_theme_option( 'southern_google_map_api_key' ) ) ):
+		$southern_google_map_api_key = carbon_get_theme_option( 'southern_google_map_api_key' );
+
+		wp_enqueue_script( THEME_TEXTDOMAIN . '-googlemapapi', 'https://maps.googleapis.com/maps/api/js?key='.$southern_google_map_api_key.'&callback=initMap', null, false, true );
+	endif;
 
 	wp_enqueue_script( THEME_TEXTDOMAIN . '-flickity', get_stylesheet_directory_uri() . '/node_modules/flickity/dist/flickity.pkgd.min.js', array('jquery'), false, true );
 
@@ -117,7 +121,6 @@ function enqueue_scripts() {
 	if ( is_page('about-us') ):
 		wp_enqueue_script( THEME_TEXTDOMAIN . '-missionGallery', get_stylesheet_directory_uri() . '/inc/js/missionGalleryPagination.js', array('jquery'), false, true );
 	endif;
-	//wp_enqueue_script( THEME_TEXTDOMAIN . '-nthEverything', get_stylesheet_directory_uri() . '/inc/js/nth-everything.js', array('jquery'), false, true );
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_styles');
@@ -129,7 +132,6 @@ function enqueue_styles() {
 
 	wp_enqueue_style( THEME_TEXTDOMAIN . '-styleFlipster', get_stylesheet_directory_uri() . '/inc/css/jquery.flipster.min.css' );
 
-	//wp_enqueue_style( THEME_TEXTDOMAIN . '-saira-google-fonts', '//fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700&display=swap', false );
 }
 
 add_action('init', 'southern_template');
@@ -156,11 +158,3 @@ function add_slug_body_class( $classes ) {
 add_filter( 'body_class', 'add_slug_body_class' );
 
 remove_filter( 'positions_details_modal', 'wpautop' );
-
-
-// function js_enqueue_scripts() {
-//     wp_enqueue_script ("my-ajax-handle", get_stylesheet_directory_uri() . "/inc/js/ajax.js", array('jquery'));
-//     //the_ajax_script will use to print admin-ajaxurl in custom ajax.js
-//     wp_localize_script('my-ajax-handle', 'the_ajax_script', array('ajaxurl' =>admin_url('admin-ajax.php')));
-// }
-// add_action("wp_enqueue_scripts", "js_enqueue_scripts");
