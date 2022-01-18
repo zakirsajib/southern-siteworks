@@ -36,8 +36,8 @@ if ( ! function_exists( 'southernsiteworks_skip_links' ) ) {
 	 */
 	function southernsiteworks_skip_links() {
 		?>
-		<a class="skip-link screen-reader-text" href="#site-navigation"><?php esc_attr_e( 'Skip to navigation', 'THEME_TEXTDOMAIN' ); ?></a>
-		<a class="skip-link screen-reader-text" href="#content"><?php esc_attr_e( 'Skip to content', 'THEME_TEXTDOMAIN' ); ?></a>
+		<a class="skip-link screen-reader-text" href="#site-navigation"><?php esc_html_e( 'Skip to navigation', 'THEME_TEXTDOMAIN' ); ?></a>
+		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'THEME_TEXTDOMAIN' ); ?></a>
 		<?php
 	}
 }
@@ -52,8 +52,8 @@ if ( ! function_exists( 'southernsiteworks_header_branding' ) ) {
 	 */
 	function southernsiteworks_header_branding() {
 		?>
-        <div class="container">
-            <div class="row">
+        <div class="container g-0">
+            <div class="row g-0">
                 <div class="header-wrapper position-relative g-0">
                     <div class="col d-flex flex-wrap justify-content-center align-items-center">
                         <div class="ss-logo-wrapper position-absolute">

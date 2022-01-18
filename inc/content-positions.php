@@ -59,25 +59,28 @@
                                         <img src="https://picsum.photos/id/1000/460/400" class="img-fluid" />
                                     <?php endif; ?>
                                 </div>
-                                <div class="position-small-meta d-flex flex-column flex-lg-row align-items-start justify-content-between">
-                                    <div class="position-title text-uppercase">
-                                            <h4><?php the_title(); ?></h4>
+                                <div class="ps-3 pe-3 pt-3 pb-3 position-meta">
+                                    <div class="position-small-meta d-flex flex-column flex-lg-row align-items-start justify-content-between">
+                                        <div class="position-title text-uppercase">
+                                                <h4><?php the_title(); ?></h4>
+                                        </div>
+
+                                        <?php if ( !empty( carbon_get_post_meta( get_the_ID(), 'positions_rate' ) ) ):
+                                            $positions_rate = carbon_get_post_meta( get_the_ID(), 'positions_rate' );?>
+                                            <div class="position-rate text-uppercase"><h4><?php echo $positions_rate; ?></h4></div>
+                                        <?php else:?>
+                                            <div class="position-rate text-uppercase"><h4><p><?php _e( 'Sorry, no information found!' ); ?></p></h4></div>
+                                        <?php endif; ?>
                                     </div>
 
-                                    <?php if ( !empty( carbon_get_post_meta( get_the_ID(), 'positions_rate' ) ) ):
-                                        $positions_rate = carbon_get_post_meta( get_the_ID(), 'positions_rate' );?>
-                                        <div class="position-rate text-uppercase"><h4><?php echo $positions_rate; ?></h4></div>
-                                    <?php else:?>
-                                        <div class="position-rate text-uppercase"><h4><p><?php _e( 'Sorry, no information found!' ); ?></p></h4></div>
-                                    <?php endif; ?>
-                                </div>
+                                    <div class="position-more-button">
+                                        <a
+                                            href=""
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#positionModal<?php echo $count;?>"
+                                        >More Info</a>
+                                    </div>
 
-                                <div class="position-more-button">
-                                    <a
-                                        href=""
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#positionModal<?php echo $count;?>"
-                                    >More Info</a>
                                 </div>
 
                                 <!-- Job Descriptions Modal -->

@@ -1,3 +1,17 @@
+<?php
+    $southern_services_args = array(
+
+        'post_type'         => 'services',
+        'post_status'       => 'publish',
+        'posts_per_page'    => -1,
+        'orderby'          => 'title',
+        'order'             => 'ASC'
+    );
+    $southern_services_query = new WP_Query( $southern_services_args );
+
+
+if ( $southern_services_query->have_posts() ) :  ?>
+
 <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
         <div class="triangle-topleft"></div>
@@ -13,29 +27,34 @@
                           <div class="row">
                               <div class="responsiveGallery-container" id="responsiveGallery-container<?php the_ID(); ?>">
                                         <ul class="flip-items flipster__container">
+                                            <?php while ( $southern_services_query->have_posts() ) : $southern_services_query->the_post();
 
-                                            <?php
-
-                                                if ( !empty( carbon_get_post_meta( get_the_ID(), 'featured_projects_gallery' ) ) ):
-                                                      $featured_projects_gallery = carbon_get_post_meta(get_the_ID(), 'featured_projects_gallery');
-
-                                                      foreach ($featured_projects_gallery as $project_slide) { ?>
-
+                                                if ( !empty( carbon_get_post_meta( get_the_ID(), 'services_slide' ) ) ):
+                                                      $services_slides = carbon_get_post_meta(get_the_ID(), 'services_slide');
+                                                      //$slide_count = count( $services_slides );
+                                                      //$count = 0;
+                                                      //echo $slide_count;
+                                                      foreach ($services_slides as $services_slide):
+                                                        //if( $count < $slide_count ): ?>
                                                         <li
                                                             class="responsiveGallery-item <?php the_title(); ?>"
                                                         >
-                                                        <?php echo wp_get_attachment_image( $project_slide, array('729', '474'), '', array( "class" => "img-fluid" ) );  ?>
+                                                        <?php echo wp_get_attachment_image( $services_slide, array('729', '474'), '', array( "class" => "img-fluid" ) );  ?>
                                                         </li>
 
 
 
-                                                    <?php }
+                                                    <?php
+                                                    //$count++;
+                                                //endif;
+                                            endforeach;
                                                 else: ?>
-                                                    <div class="alert alert-danger m-5" role="alert">No GALLERY found!</div>
+                                                        <div class="alert alert-danger m-5" role="alert">No GALLERY found!</div>
                                                 <?php endif; // end loop here! ?>
 
 
-
+                                            <?php endwhile;
+                                            wp_reset_postdata(); ?>
                                         </ul>
 
 
@@ -50,6 +69,7 @@
     </div>
 </div>
 
+<?php endif; ?>
 
 <script>
 
@@ -59,9 +79,9 @@ $(function ($) {
 
     // Project Coverflow Modal
 
-    var carousel = $("#responsiveGallery-container<?php the_ID(); ?>").flipster({
-        itemContainer: 'ul',
-        itemSelector: 'li',
+    var carousel = $(".galleryModal #responsiveGallery-container<?php the_ID(); ?>").flipster({
+        //itemContainer: 'ul',
+        //itemSelector: 'li',
         style: 'carousel',
         spacing: -0.5,
         nav: false,
@@ -128,6 +148,5 @@ $(function ($) {
 
 
 });
-
 
 </script>

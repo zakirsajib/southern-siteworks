@@ -5,6 +5,8 @@ $(function ($) {
     // Gallery Coverflow Modal
 
     var carousel = $(".responsiveGallery-container").flipster({
+        itemContainer: 'ul',
+        itemSelector: 'li',
         style: 'carousel',
         spacing: -0.5,
         nav: false,

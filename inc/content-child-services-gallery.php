@@ -79,7 +79,8 @@
                             "groupCells": 1
                         }'>
 
-                        <?php while ( $southern_services_query->have_posts() ) : $southern_services_query->the_post();
+                        <?php
+                        while ( $southern_services_query->have_posts() ) : $southern_services_query->the_post();
 
                               if ( !empty( carbon_get_post_meta( get_the_ID(), 'services_slide' ) ) ):
                                     $services_slides = carbon_get_post_meta(get_the_ID(), 'services_slide');
@@ -93,7 +94,7 @@
                                                   <a
                                                       href=""
                                                       data-bs-toggle="modal"
-                                                      data-bs-target="#galleryModal">
+                                                      data-bs-target="#galleryModalAll">
                                                       <!-- <img
                                                           src="<?php //echo wp_get_attachment_url( $services_slide['service_gallery_img_one'] ) ?>"
                                                           class="img-fluid"
@@ -110,7 +111,7 @@
                                                         <a
                                                           href=""
                                                           data-bs-toggle="modal"
-                                                          data-bs-target="#galleryModal">
+                                                          data-bs-target="#galleryModalAll">
                                                           <!-- <img
                                                               src="<?php //echo wp_get_attachment_url( $services_slide['service_gallery_img_two'] ) ?>"
                                                               class="img-fluid"
@@ -126,7 +127,7 @@
                                                     <div class="col-6 smallC g-0 ps-sm-2">
                                                         <a href=""
                                                           data-bs-toggle="modal"
-                                                          data-bs-target="#galleryModal">
+                                                          data-bs-target="#galleryModalAll">
                                                             <!-- <img
                                                               src="<?php //echo wp_get_attachment_url( $services_slide['service_gallery_img_three'] ) ?>"
                                                             class="img-fluid"
@@ -140,7 +141,7 @@
                                                     <div class="col-6 smallC g-0 ps-sm-2 ms-n1 ps-md-3 ps-lgfix-2">
                                                         <a href=""
                                                           data-bs-toggle="modal"
-                                                          data-bs-target="#galleryModal">
+                                                          data-bs-target="#galleryModalAll">
                                                             <!-- <img
                                                               src="<?php //echo wp_get_attachment_url( $services_slide['service_gallery_img_four'] ) ?>"
                                                               class="img-fluid"
@@ -157,9 +158,9 @@
                               endforeach;
                               else:?>
                                   <div class="alert alert-danger m-5" role="alert">No GALLERY found!</div>
-                              <?php endif;
+                              <?php endif;?>
 
-                        endwhile;
+                        <?php endwhile;
                         wp_reset_postdata(); ?>
 
 
@@ -168,9 +169,23 @@
                 </div> <!-- end tab-pane -->
 
 
+                <div
+                  class="modal fade galleryModal"
+                  id="galleryModalAll"
+                  tabindex="-1"
+                  aria-labelledby="galleryModalLabel"
+                  aria-hidden="true"
+                >
+                <?php
+                  // Modal for displaying all images in gallery modal
+                  get_template_part( 'inc/gallery-modal-mobile' );
+                ?>
+                </div>
+
 
 
             <?php
+            $modal = 0;
             // Other services
             while ( $southern_services_query->have_posts() ) : $southern_services_query->the_post(); ?>
 
@@ -193,6 +208,7 @@
                           $slide_count = count($services_slides);
                           $count = 0;
 
+
                           foreach ($services_slides as $key=>$services_slide):
                             if( $count < $slide_count ): ?>
                             <div class="carousel-cell row">
@@ -201,7 +217,7 @@
                                         <a
                                             href=""
                                             data-bs-toggle="modal"
-                                            data-bs-target="#galleryModal">
+                                            data-bs-target="#galleryModal<?php echo $modal; ?>">
 
                                             <!-- <img
                                                 src="<?php //echo wp_get_attachment_url( $key[$count] ) ?>"
@@ -219,7 +235,7 @@
                                               <a
                                                 href=""
                                                 data-bs-toggle="modal"
-                                                data-bs-target="#galleryModal">
+                                                data-bs-target="#galleryModal<?php echo $modal; ?>">
                                                 <!-- <img
                                                     src="<?php //echo wp_get_attachment_url( $services_slide['service_gallery_img_two'] ) ?>"
                                                     class="img-fluid"
@@ -235,7 +251,7 @@
                                           <div class="col-6 smallC g-0 ps-sm-2">
                                               <a href=""
                                                 data-bs-toggle="modal"
-                                                data-bs-target="#galleryModal">
+                                                data-bs-target="#galleryModal<?php echo $modal; ?>">
                                                   <!-- <img
                                                     src="<?php //echo wp_get_attachment_url( $services_slide['service_gallery_img_three'] ) ?>"
                                                   class="img-fluid"
@@ -249,7 +265,7 @@
                                           <div class="col-6 smallC g-0 ps-sm-2 ms-n1 ps-md-3 ps-lgfix-2">
                                               <a href=""
                                                 data-bs-toggle="modal"
-                                                data-bs-target="#galleryModal">
+                                                data-bs-target="#galleryModal<?php echo $modal; ?>">
                                                   <!-- <img
                                                     src="<?php //echo wp_get_attachment_url( $services_slide['service_gallery_img_four'] ) ?>"
                                                     class="img-fluid"
@@ -272,7 +288,24 @@
                     </div> <!-- end Carousel -->
                     <div class="carousel-status <?php the_title(); ?>"></div>
                 </div> <!-- end tab-pane -->
-                <?php endwhile;
+
+                <div
+                    class="modal fade galleryModal"
+                    id="galleryModal<?php echo $modal; ?>"
+                    tabindex="-1"
+                    aria-labelledby="galleryModalLabel"
+                    aria-hidden="true"
+                >
+                <?php
+                    // Modal for displaying all images in gallery modal
+                    get_template_part( 'inc/gallery-modal' );
+                ?>
+                </div>
+
+
+
+
+                <?php $modal++; endwhile;
                 wp_reset_postdata(); ?>
 
                 <!-- <div class="carousel-status"></div> -->
@@ -386,7 +419,9 @@
 
 
 
-                <?php while ( $southern_services_query->have_posts() ) : $southern_services_query->the_post(); ?>
+                <?php
+
+                while ( $southern_services_query->have_posts() ) : $southern_services_query->the_post(); ?>
                 <div class="tab-pane fade" id="pills-<?php the_title(); ?>Mobile" role="tabpanel" aria-labelledby="pills-<?php the_title(); ?>Mobile-tab">
                   <div class="<?php the_title(); ?>carouselMobile col-12" data-flickity='{
                         "cellAlign": "center",
@@ -401,6 +436,7 @@
                     }'>
 
                     <?php
+
                     if ( !empty( carbon_get_post_meta( get_the_ID(), 'services_slide' ) ) ):
                           $services_slides = carbon_get_post_meta(get_the_ID(), 'services_slide');
                           $slide_count = count( $services_slides );
@@ -444,7 +480,7 @@
 
 
 
-<div
+<!-- <div
     class="modal fade"
     id="galleryModal"
     tabindex="-1"
@@ -453,6 +489,6 @@
 >
 <?php
     // Modal for displaying all images in gallery modal
-    get_template_part( 'inc/gallery-modal' );
+    //get_template_part( 'inc/gallery-modal-mobile' );
 ?>
-</div>
+</div> -->

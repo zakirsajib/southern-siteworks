@@ -490,11 +490,12 @@ body.page-careers .who-we-stand-for-bg .who-we-stand-for-contents .who-we-are-st
 //     }
 // }
 
-@media (min-width: 2000px) {
+@media (min-width: 1441px) {
   .container {
       max-width: 1920px;
-      padding-left: 10rem;
-      padding-right: 10rem;
+      padding-left: 160px;
+      padding-right: 160px;
+      //width: 100%;
   }
 }
 
@@ -549,11 +550,11 @@ body.page-careers .who-we-stand-for-bg .who-we-stand-for-contents .who-we-are-st
     }
 }
 
-@media (min-width: 1600px) {
-    .container-xsl {
-        max-width: 1560px;
-    }
-}
+// @media (min-width: 1600px) {
+//     .container-xsl {
+//         max-width: 1560px;
+//     }
+// }
 
 @media (min-width: 3000px) {
     .col-xsl-2 {
@@ -596,7 +597,7 @@ body.page-careers .who-we-stand-for-bg .who-we-stand-for-contents .who-we-are-st
 }
 
 .ps-6 {
-    padding-left: 6rem!important;
+    padding-left: 5rem!important;
     @media (max-width: 767px) {
         padding-left: 0!important;
     }

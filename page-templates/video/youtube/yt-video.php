@@ -1,7 +1,9 @@
 <?php $home_page_intro_section_youtube_popup_video_link = carbon_get_post_meta( get_the_ID(), 'home_page_intro_section_youtube_popup_video_link' ); ?>
-<div class="youtubeVideo top-0 h-100 d-flex">
+<div class="youtubeVideo top-0 d-flex">
             <img
                 class="img-fluid"
+                width="1107"
+                height="950"
                 src="//img.youtube.com/vi/<?php echo $home_page_intro_section_youtube_popup_video_link ?>/maxresdefault.jpg"
             />
             <?php get_template_part('inc/play-button');?>

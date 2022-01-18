@@ -2,7 +2,7 @@
 
     $home_page_intro_section_hero_image = carbon_get_post_meta( get_the_ID(), 'home_page_intro_section_hero_image' );?>
 
-    <div class="featured-image-box top-0 h-100 d-flex">
+    <div class="featured-image-box top-0 d-flex">
         <!-- <img
             src="<?php //echo $home_page_intro_section_hero_image ?>"
             class="img-fluid"
@@ -31,7 +31,7 @@
         get_template_part( 'page-templates/video/hostedvideo/hero-video' );
 
     else: ?>
-        <div class="empty-box top-0 h-100 justify-content-center d-flex align-items-center" role="alert">
+        <div class="empty-box top-0 justify-content-center d-flex align-items-center" role="alert">
             <img
                 class="img-fluid"
                 src="https://via.placeholder.com/1920x1920.png?text=No+Video+or+Image+Found!"

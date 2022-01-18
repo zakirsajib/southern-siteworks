@@ -8,30 +8,27 @@
     <meta name="format-detection" content="telephone=no" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="<?php bloginfo('stylesheet_directory') ?>/assets/theme/img/favicons/apple-touch-icon-57x57.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php bloginfo('stylesheet_directory') ?>/assets/theme/img/favicons/apple-touch-icon-114x114.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php bloginfo('stylesheet_directory') ?>/assets/theme/img/favicons/apple-touch-icon-72x72.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php bloginfo('stylesheet_directory') ?>/assets/theme/img/favicons/apple-touch-icon-144x144.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="<?php bloginfo('stylesheet_directory') ?>/assets/theme/img/favicons/apple-touch-icon-60x60.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="<?php bloginfo('stylesheet_directory') ?>/assets/theme/img/favicons/apple-touch-icon-120x120.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="<?php bloginfo('stylesheet_directory') ?>/assets/theme/img/favicons/apple-touch-icon-76x76.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="<?php bloginfo('stylesheet_directory') ?>/assets/theme/img/favicons/apple-touch-icon-152x152.png" />
-	<link rel="icon" type="image/png" href="<?php bloginfo('stylesheet_directory') ?>/assets/theme/img/favicons/favicon-196x196.png" sizes="196x196" />
-	<link rel="icon" type="image/png" href="<?php bloginfo('stylesheet_directory') ?>/assets/theme/img/favicons/favicon-96x96.png" sizes="96x96" />
-	<link rel="icon" type="image/png" href="<?php bloginfo('stylesheet_directory') ?>/assets/theme/img/favicons/favicon-32x32.png" sizes="32x32" />
-	<link rel="icon" type="image/png" href="<?php bloginfo('stylesheet_directory') ?>/assets/theme/img/favicons/favicon-16x16.png" sizes="16x16" />
-	<link rel="icon" type="image/png" href="<?php bloginfo('stylesheet_directory') ?>/assets/theme/img/favicons/favicon-128.png" sizes="128x128" />
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="<?php echo esc_url( get_stylesheet_directory_uri() ) ?>/assets/theme/img/favicons/apple-touch-icon-57x57.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo esc_url( get_stylesheet_directory_uri() ) ?>/assets/theme/img/favicons/apple-touch-icon-114x114.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo esc_url( get_stylesheet_directory_uri() ) ?>/assets/theme/img/favicons/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo esc_url( get_stylesheet_directory_uri() ) ?>/assets/theme/img/favicons/apple-touch-icon-144x144.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="<?php echo esc_url( get_stylesheet_directory_uri() ) ?>/assets/theme/img/favicons/apple-touch-icon-60x60.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="<?php echo esc_url( get_stylesheet_directory_uri() ) ?>/assets/theme/img/favicons/apple-touch-icon-120x120.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="<?php echo esc_url( get_stylesheet_directory_uri() ) ?>/assets/theme/img/favicons/apple-touch-icon-76x76.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="<?php echo esc_url( get_stylesheet_directory_uri() ) ?>/assets/theme/img/favicons/apple-touch-icon-152x152.png" />
+	<link rel="icon" type="image/png" href="<?php echo esc_url( get_stylesheet_directory_uri() ) ?>/assets/theme/img/favicons/favicon-196x196.png" sizes="196x196" />
+	<link rel="icon" type="image/png" href="<?php echo esc_url( get_stylesheet_directory_uri() ) ?>/assets/theme/img/favicons/favicon-96x96.png" sizes="96x96" />
+	<link rel="icon" type="image/png" href="<?php echo esc_url( get_stylesheet_directory_uri() ) ?>/assets/theme/img/favicons/favicon-32x32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="<?php echo esc_url( get_stylesheet_directory_uri() ) ?>/assets/theme/img/favicons/favicon-16x16.png" sizes="16x16" />
+	<link rel="icon" type="image/png" href="<?php echo esc_url( get_stylesheet_directory_uri() ) ?>/assets/theme/img/favicons/favicon-128.png" sizes="128x128" />
 
 	<meta name="application-name" content="<?php bloginfo('name') ?>"/>
 	<meta name="msapplication-TileColor" content="<?php echo THEME_BRAND_COLOR_MAIN ?>" />
-	<meta name="msapplication-TileImage" content="<?php bloginfo('stylesheet_directory') ?>/assets/theme/img/favicons/mstile-144x144.png" />
-	<meta name="msapplication-square70x70logo" content="<?php bloginfo('stylesheet_directory') ?>/assets/theme/img/favicons/mstile-70x70.png" />
-	<meta name="msapplication-square150x150logo" content="<?php bloginfo('stylesheet_directory') ?>/assets/theme/img/favicons/mstile-150x150.png" />
-	<meta name="msapplication-wide310x150logo" content="<?php bloginfo('stylesheet_directory') ?>/assets/theme/img/favicons/mstile-310x150.png" />
-	<meta name="msapplication-square310x310logo" content="<?php bloginfo('stylesheet_directory') ?>/assets/theme/img/favicons/mstile-310x310.png" />
-
-	<!-- Zakir note: Temporary inclusion for testing: JavaScript Bundle with Popper -->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+	<meta name="msapplication-TileImage" content="<?php echo esc_url( get_stylesheet_directory_uri() ) ?>/assets/theme/img/favicons/mstile-144x144.png" />
+	<meta name="msapplication-square70x70logo" content="<?php echo esc_url( get_stylesheet_directory_uri() ) ?>/assets/theme/img/favicons/mstile-70x70.png" />
+	<meta name="msapplication-square150x150logo" content="<?php echo esc_url( get_stylesheet_directory_uri() ) ?>/assets/theme/img/favicons/mstile-150x150.png" />
+	<meta name="msapplication-wide310x150logo" content="<?php echo esc_url( get_stylesheet_directory_uri() ) ?>/assets/theme/img/favicons/mstile-310x150.png" />
+	<meta name="msapplication-square310x310logo" content="<?php echo esc_url( get_stylesheet_directory_uri() ) ?>/assets/theme/img/favicons/mstile-310x310.png" />
 
 	<?php wp_head() ?>
 </head>

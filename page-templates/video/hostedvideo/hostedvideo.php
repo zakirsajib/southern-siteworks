@@ -1,7 +1,7 @@
 <?php $home_page_intro_section_bg_video = carbon_get_post_meta( get_the_ID(), 'home_page_intro_section_bg_video' );
 $home_page_intro_section_bg_video_url = wp_get_attachment_url( $home_page_intro_section_bg_video );?>
 
-    <div class="self-hosted-video-box top-0 h-100 d-flex">
+    <div class="self-hosted-video-box top-0 d-flex">
 
             <?php if ( !empty( carbon_get_post_meta( get_the_ID(), 'home_page_intro_section_bg_video_poster' ) ) ):
                 $intro_section_bg_video_poster = carbon_get_post_meta( get_the_ID(), 'home_page_intro_section_bg_video_poster' ); ?>

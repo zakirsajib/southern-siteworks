@@ -52,7 +52,7 @@
 
 
         <div class="container-fluid g-0 projects-gallery">
-            <div class="row ps-0 ps-sm-4 pe-4">
+            <div class="row ps-0 ps-sm-5 ps-md-5">
 
             <?php
             $posts_array = array(
@@ -69,7 +69,7 @@
             $query = new WP_Query($posts_array);
             if ( $query->have_posts() ):
                 $count = 0; ?>
-                <div class="mb-5 pb-5 project-container" data-flickity='{
+                <div class="pb-5 project-container" data-flickity='{
                         "groupCells": true,
                         "cellAlign": "left",
                         "contain": false,
@@ -77,7 +77,7 @@
                         "freeScroll": false,
                         "wrapAround": false,
                         "draggable": true,
-                        "pageDots": true
+                        "pageDots": false
                     }'
                 >
                 <?php
@@ -94,17 +94,19 @@
                                 <img src="https://picsum.photos/id/1000/382/400" class="img-fluid" />
                             <?php endif; ?>
                         </div>
-                        <div class="project-small-meta d-flex flex-column flex-lg-row align-items-start justify-content-between">
-                            <div class="project-title text-uppercase">
-                                <h4><?php the_title(); ?></h4>
+                        <div class="ps-3 pe-3 pt-3 pb-3 project-meta">
+                            <div class="project-small-meta d-flex flex-column flex-lg-row align-items-md-start align-items-center justify-content-between">
+                                <div class="project-title text-uppercase">
+                                    <h4><?php the_title(); ?></h4>
+                                </div>
                             </div>
-                        </div>
-                        <div class="project-more-button">
-                            <a
-                                href=""
-                                data-bs-toggle="modal"
-                                data-bs-target="#projectModal<?php echo $count; ?>"
-                            >More Info</a>
+                            <div class="project-more-button">
+                                <a
+                                    href=""
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#projectModal<?php echo $count; ?>"
+                                >More Info</a>
+                            </div>
                         </div>
                         <!-- Gallery Modal -->
                         <div

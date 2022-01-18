@@ -160,45 +160,54 @@ $(function ($) {
     );
 
 
+
     $('#projectCat').change(function() {
 
         var ourClass = $(this).val();
 
         if(ourClass == 'all') {
-          // show all our items
-          $('.projects-gallery').find('.project-box.item').show();
+
+        var cellsCount = $('.projects-gallery').find('.project-box.item').length;
+        var cellWidth= $('.projects-gallery').find('div.project-box').width();
+
+
+        var initialColLeftPosition = 0;
+        var nextColLeftPosition = cellWidth + 20;
+
+        for (let i = 0; i < cellsCount; i++) {
+
+          var selectedCell = $('.projects-gallery').find('div.project-box');
+          $(selectedCell[i]).css('left', initialColLeftPosition+'px');
+          $(selectedCell[i]).css('padding-left', '0.5rem');
+          $(selectedCell[i]).css('padding-right', '0.5rem');
+          $(selectedCell[i]).css('margin-left', '1rem');
+          $(selectedCell[i]).show();
+
+          initialColLeftPosition = initialColLeftPosition + nextColLeftPosition;
+        }
+
         }
         else {
           // hide all elements that don't share ourClass
           $('.projects-gallery').find('div.project-box:not('+ ourClass+ ')').hide();
-          //console.log(ourClass);
-          //var $carousel = $('.project-container').flickity();
-          //$carousel.flickity('reloadCells');
 
           var selectedCellsCount= $('.projects-gallery').find('div.project-box.' + ourClass ).length;
 
+          var selectedCellWidth= $('.projects-gallery').find('div.project-box').width();
+
           var initialColLeftPosition = 0;
-          var nextColLeftPosition = 344.25;
+          var nextColLeftPosition = selectedCellWidth + 20;
 
           for (let i = 0; i < selectedCellsCount; i++) {
-              //$('.projects-gallery').find('div.project-box.' + ourClass ).show();
 
               var selectedCell = $('.projects-gallery').find('div.project-box.' + ourClass );
               $(selectedCell[i]).css('left', initialColLeftPosition+'px');
-              //$(selectedCell[i]).css('margin-left', '2rem');
+              $(selectedCell[i]).css('padding-left', '0.5rem');
+              $(selectedCell[i]).css('padding-right', '0.5rem');
+              $(selectedCell[i]).css('margin-left', '1rem');
               $(selectedCell[i]).show();
 
-
-              //$( $('.projects-gallery').find('div.project-box.' + ourClass )[i] ).css('left', col+'px');
-              //$( $('.projects-gallery').find('div.project-box.' + ourClass )[i] ).show();
-              //console.log(selectedCell[i]);
-
               initialColLeftPosition = initialColLeftPosition + nextColLeftPosition;
-
-              //$(selectedCell[i++]).css('margin-left', '1rem');
-
-              //$( $('.projects-gallery').find('div.project-box.' + ourClass )[i] ).css('margin-left', '2rem');
-              //$( $('.projects-gallery').find('div.project-box.' + ourClass )[i] ).css('margin-right', '2rem');
 
           }
         }
