@@ -11,7 +11,7 @@ var gulp = require('gulp'),
 	imageMin = require('gulp-imagemin'),
 	browserSync = require('browser-sync').create();
 
-var devURL = 'http://first-project-harbinger.local/';
+var devURL = 'http://localhost:10003';
 
 var paths = {
     build: {

@@ -158,3 +158,10 @@ function add_slug_body_class( $classes ) {
 add_filter( 'body_class', 'add_slug_body_class' );
 
 remove_filter( 'positions_details_modal', 'wpautop' );
+
+
+/**
+ * TGM Plugin Activation.
+ */
+require_once 'lib/core/class-tgm-plugin-activation.php';
+add_action( 'tgmpa_register', 'southernsiteworks_register_required_plugins' );
